@@ -42,7 +42,7 @@ var getNetstatData = function(callback){
 			returnObj = addData(returnObj, lines[i], 'addresses','remote.address');
 		}
 
-		callback(returnObj);
+		callback(null, returnObj);
 
 	}}, function (data) {
 		lines.push(data);
