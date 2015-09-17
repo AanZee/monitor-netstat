@@ -1,5 +1,5 @@
 {
-  "name": "netstat",
+  "name": "monitor-netstat",
   "version": "0.1.0",
   "description": "Monitor server Netstat",
   "main": "index.js",
@@ -14,8 +14,6 @@
   "author": "Rick Groenewegen",
   "license": "ISC",
   "dependencies": {
-   "monitor-response": "git+https://aanzee.git.beanstalkapp.com/monitor-netstat.git",
-    "request": "^2.62.0",
-    "xml2js": "^0.4.12"
+   "monitor-response": "git+https://aanzee.git.beanstalkapp.com/monitor-response.git"
   }
 }
