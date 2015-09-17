@@ -1,9 +1,9 @@
 exports.isMonitoringModule = true;
 exports.hasCron = true;
 
-var request = require("request");
 var responseMessaging = require('monitor-response');
-var parseString = require('xml2js').parseString;
+var netstat = require('node-netstat');
+var running = false;
 
 exports.executeCron = function (callback) {
     getNetstatData(function(err, data){
@@ -14,8 +14,39 @@ exports.executeCron = function (callback) {
     });
 }
 
+var addData = function(obj,item,name,keyname) {
+	if(!obj[name][eval('item.' +keyname)]) {
+		obj[name][[eval('item.' +keyname)]] = 1;
+	} else {
+		obj[name][[eval('item.' +keyname)]]++;
+	}
+	return obj;
+}
+
 var getNetstatData = function(callback){
    
-    callback({test: 123});
+	var lines = [];
+
+	netstat({done : function(){
+		
+		var returnObj = {
+			"total" : lines.length,
+			"protocols" : {},
+			"addresses" : {},
+			"states" : {}
+		};
+
+		for (var i=0;i<lines.length;i++) {
+			returnObj = addData(returnObj, lines[i], 'protocols','protocol');
+			returnObj = addData(returnObj, lines[i], 'states','state');
+			returnObj = addData(returnObj, lines[i], 'addresses','remote.address');
+		}
+
+		callback(returnObj);
+
+	}}, function (data) {
+		lines.push(data);
+	});
+	
 
 }
