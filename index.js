@@ -1,7 +1,6 @@
 exports.isMonitoringModule = true;
 exports.hasCron = true;
 
-var responseMessaging = require('monitor-response');
 var netstat = require('node-netstat');
 var running = false;
 

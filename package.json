@@ -8,13 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://aanzee.git.beanstalkapp.com/monitor-netstat.git"
+    "url": "https://github.com/AanZee/monitor-netstat.git"
   },
   "keywords": [],
   "author": "Rick Groenewegen",
   "license": "ISC",
   "dependencies": {
-    "monitor-response": "git+https://aanzee.git.beanstalkapp.com/monitor-response.git",
     "netstat": "0.0.2",
     "node-netstat": "^1.1.0"
   }
