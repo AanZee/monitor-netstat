@@ -14,7 +14,6 @@
   "author": "Rick Groenewegen",
   "license": "ISC",
   "dependencies": {
-    "netstat": "0.0.2",
     "node-netstat": "^1.1.0"
   }
 }
